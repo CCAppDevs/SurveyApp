@@ -132,5 +132,8 @@
       }
     }
   },
-  "defaultProject": "SurveyApp"
+  "defaultProject": "SurveyApp",
+  "cli": {
+    "analytics": false
+  }
 }

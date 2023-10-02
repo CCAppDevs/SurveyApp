@@ -1,0 +1,31 @@
+instructor
+date
+course
+section
+lab class? (boolean)
+
+
+## SurveyForm
+formid (primary key)
+created date
+updated date
+
+
+## Header Info
+headerId (primary key)
+formId (foreign key)
+property
+value
+
+
+## questions
+questionId (primary key)
+formId (foreign key)
+question
+question type
+
+## responses
+responseId (primary key)
+formId (foreign key)
+questionId (foreign key)
+response
