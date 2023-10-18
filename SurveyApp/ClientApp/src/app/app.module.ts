@@ -13,6 +13,8 @@ import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { FormComponent } from './form/form/form.component';
+import { ResponseComponent } from './response/response.component';
+import { DataService } from './data.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { FormComponent } from './form/form/form.component';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    FormComponent
+    FormComponent,
+    ResponseComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -31,12 +34,14 @@ import { FormComponent } from './form/form/form.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'form', component: FormComponent },
+      { path: 'form/:id', component: ResponseComponent },
       { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
+      /*{ path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },*/
     ])
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true },
+    DataService
   ],
   bootstrap: [AppComponent]
 })

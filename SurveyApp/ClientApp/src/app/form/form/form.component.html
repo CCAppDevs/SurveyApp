@@ -1,1 +1,7 @@
-<p>form works!</p>
+<h1>Available Forms</h1>
+
+<ul>
+  <li *ngFor="let item of forms"><div>{{ item.formID }} - {{ item.title }}</div></li>
+</ul>
+
+<pre>{{ forms | json }}</pre>
