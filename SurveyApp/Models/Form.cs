@@ -9,5 +9,7 @@
 
         // navigation property
         public virtual ICollection<Question> Questions { get; set; }
+        public virtual ICollection<Response> Responses { get; set; }
+
     }
 }
