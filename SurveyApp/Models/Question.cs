@@ -8,5 +8,8 @@
         
         // relationship
         public int FormId { get; set; }
+        public virtual ICollection<Response> Responses { get; set; }
+
     }
+
 }
