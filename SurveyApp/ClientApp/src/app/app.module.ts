@@ -15,6 +15,8 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
 import { FormComponent } from './form/form/form.component';
 import { ResponseComponent } from './response/response.component';
 import { DataService } from './data.service';
+import { AdministratorComponent } from './administrator/administrator.component';
+import { FacultyComponent } from './faculty/faculty.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { DataService } from './data.service';
     CounterComponent,
     FetchDataComponent,
     FormComponent,
-    ResponseComponent
+    ResponseComponent,
+    AdministratorComponent,
+    FacultyComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -35,6 +39,8 @@ import { DataService } from './data.service';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'form', component: FormComponent },
       { path: 'form/:id', component: ResponseComponent },
+      { path: 'administrator', component: AdministratorComponent },
+      { path: 'faculty', component: FacultyComponent },
       { path: 'counter', component: CounterComponent },
       /*{ path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },*/
     ])
