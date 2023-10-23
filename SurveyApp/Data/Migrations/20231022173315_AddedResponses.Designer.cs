@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SurveyApp.Data;
 
@@ -11,9 +12,11 @@ using SurveyApp.Data;
 namespace SurveyApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231022173315_AddedResponses")]
+    partial class AddedResponses
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -421,18 +424,22 @@ namespace SurveyApp.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ResponseID"));
 
-                    b.Property<double?>("NumericResponse")
-                        .HasColumnType("float");
+                    b.Property<int>("FormId")
+                        .HasColumnType("int");
 
                     b.Property<int>("QuestionID")
                         .HasColumnType("int");
 
-                    b.Property<string>("TextResponse")
+                    b.Property<int>("ResponseType1")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ResponseType2")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ResponseID");
 
-                    b.HasIndex("QuestionID");
+                    b.HasIndex("FormId");
 
                     b.ToTable("Responses");
                 });
@@ -499,9 +506,9 @@ namespace SurveyApp.Data.Migrations
 
             modelBuilder.Entity("SurveyApp.Models.Response", b =>
                 {
-                    b.HasOne("SurveyApp.Models.Question", null)
+                    b.HasOne("SurveyApp.Models.Form", null)
                         .WithMany("Responses")
-                        .HasForeignKey("QuestionID")
+                        .HasForeignKey("FormId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -509,10 +516,7 @@ namespace SurveyApp.Data.Migrations
             modelBuilder.Entity("SurveyApp.Models.Form", b =>
                 {
                     b.Navigation("Questions");
-                });
 
-            modelBuilder.Entity("SurveyApp.Models.Question", b =>
-                {
                     b.Navigation("Responses");
                 });
 #pragma warning restore 612, 618
