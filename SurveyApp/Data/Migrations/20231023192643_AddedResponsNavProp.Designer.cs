@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SurveyApp.Data;
 
@@ -11,9 +12,11 @@ using SurveyApp.Data;
 namespace SurveyApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231023192643_AddedResponsNavProp")]
+    partial class AddedResponsNavProp
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -421,13 +424,14 @@ namespace SurveyApp.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ResponseID"));
 
-                    b.Property<double?>("NumericResponse")
+                    b.Property<double>("NumericResponse")
                         .HasColumnType("float");
 
                     b.Property<int>("QuestionID")
                         .HasColumnType("int");
 
                     b.Property<string>("TextResponse")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ResponseID");
