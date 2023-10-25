@@ -1,7 +1,12 @@
 <h1>Available Forms</h1>
 
-<ul>
-  <li *ngFor="let item of forms"><div>{{ item.formID }} - {{ item.title }}</div></li>
-</ul>
+<div class="row">
+  <div class="col" *ngFor="let item of forms">
+    <div class="card">
+      <div class="card-title">{{ item.title }}</div>
+    </div>
+    <div class="btn-danger btn btn-sm" (click)="deleteForm(item.formID)">Delete</div>
+  </div>
+</div>
 
 <pre>{{ forms | json }}</pre>

@@ -11,7 +11,6 @@ using SurveyApp.Models;
 
 namespace SurveyApp.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class FormsController : ControllerBase
@@ -23,7 +22,6 @@ namespace SurveyApp.Controllers
             _context = context;
         }
 
-        [AllowAnonymous]
         // GET: api/Forms
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Form>>> GetForms()
@@ -36,7 +34,6 @@ namespace SurveyApp.Controllers
         }
 
         // GET: api/Forms/5
-        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<ActionResult<Form>> GetForm(int id)
         {
