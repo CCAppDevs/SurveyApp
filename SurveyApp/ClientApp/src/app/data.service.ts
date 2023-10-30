@@ -21,31 +21,31 @@ export class DataService {
     this.baseUrl = base + "api";
   }
 
-  // forms
+  // questionaires
 
-  // get all forms
-  getAllForms(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/forms`);
+  // get all questionaires
+  getAllQuestionaires(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/questionaires`);
   }
 
   // get form by id (read)
-  getFormById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/forms/${id}`);
+  getQuestionaireById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/questionaires/${id}`);
   }
 
   // put an updated form (update)
-  updateForm(form: Survey): Observable<Survey> {
-    return this.http.put<Survey>(`${this.baseUrl}/forms/${form.formId}`, form);
+  updateQuestionaire(form: Survey): Observable<Survey> {
+    return this.http.put<Survey>(`${this.baseUrl}/questionaires/${form.formId}`, form);
   }
 
   // post a new form (create)
-  createNewForm(form: Survey): Observable<Survey> {
-    return this.http.post<Survey>(`${this.baseUrl}/forms`, form);
+  createNewQuestionaire(form: Survey): Observable<Survey> {
+    return this.http.post<Survey>(`${this.baseUrl}/questionaires`, form);
   }
 
   // delete a form (delete)
-  deleteForm(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.baseUrl}/forms/${id}`)
+  deleteQuestionaire(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.baseUrl}/questionaires/${id}`)
   }
 
 

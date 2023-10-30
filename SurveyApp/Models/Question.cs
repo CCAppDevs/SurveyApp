@@ -7,7 +7,7 @@
         public int PromptType { get; set; }
         
         // relationship
-        public int FormId { get; set; }
+        public int QuestionaireId { get; set; }
         public virtual ICollection<Response> Responses { get; set; }
 
     }

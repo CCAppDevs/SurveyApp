@@ -8,7 +8,7 @@ namespace SurveyApp.Data
 {
     public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
     {
-        public DbSet<Form> Forms { get; set; }
+        public DbSet<Questionaire> Questionaire { get; set; }
         public DbSet<Question> Questions { get; set; }
 
         public DbSet <Response> Responses{ get; set; }
@@ -18,6 +18,13 @@ namespace SurveyApp.Data
             : base(options, operationalStoreOptions)
         {
 
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            builder.Entity<Questionaire>().Navigation(q => q.Questions).AutoInclude();
         }
     }
 }

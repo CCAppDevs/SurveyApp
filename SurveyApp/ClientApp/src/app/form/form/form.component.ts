@@ -8,26 +8,4 @@ import { DataService } from '../../data.service';
 })
 export class FormComponent {
 
-  forms: any[] = [];
-
-  constructor(private data: DataService) {
-
-    this.initForms();
-  }
-
-  initForms() {
-    this.data.getAllForms().subscribe((forms) => {
-      console.log(forms);
-      this.forms = forms;
-    });
-  }
-
-  deleteForm(id: number) {
-    console.log('Deleting ', id);
-    this.data.deleteForm(id).subscribe((result) => {
-      console.log(result);
-      console.log("Deleted", id);
-      this.initForms();
-    });
-  }
 }

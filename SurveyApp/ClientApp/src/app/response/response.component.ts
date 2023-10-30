@@ -17,7 +17,7 @@ export class ResponseComponent {
     this.route.paramMap.pipe(
       switchMap(params => {
         this.id = Number(params.get('id'));
-        return this.data.getFormById(this.id);
+        return this.data.getQuestionaireById(this.id);
       })
     ).subscribe(result => {
       this.formData = result;
