@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
@@ -17,6 +17,7 @@ import { ResponseComponent } from './response/response.component';
 import { DataService } from './data.service';
 import { AdministratorComponent } from './administrator/administrator.component';
 import { FacultyComponent } from './faculty/faculty.component';
+import { EditFormComponent } from './form/edit-form/edit-form.component';
 
 @NgModule({
   declarations: [
@@ -28,17 +29,19 @@ import { FacultyComponent } from './faculty/faculty.component';
     FormComponent,
     ResponseComponent,
     AdministratorComponent,
-    FacultyComponent
+    FacultyComponent,
+    EditFormComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     ApiAuthorizationModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'form', component: FormComponent },
-      { path: 'form/:id', component: ResponseComponent },
+      { path: 'form/:id', component: EditFormComponent },
       { path: 'administrator', component: AdministratorComponent },
       { path: 'faculty', component: FacultyComponent },
       { path: 'counter', component: CounterComponent },
