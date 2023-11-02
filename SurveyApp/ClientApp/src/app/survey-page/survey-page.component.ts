@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class SurveyPageComponent {
 
+  data: any = {
+    instructor: "jesse",
+    location: "wah216"
+  }
+
+  startSurvey() {
+    console.log("Survey Started", this.data);
+  }
 }
