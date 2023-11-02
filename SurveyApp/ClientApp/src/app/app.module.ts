@@ -18,6 +18,8 @@ import { DataService } from './data.service';
 import { AdministratorComponent } from './administrator/administrator.component';
 import { FacultyComponent } from './faculty/faculty.component';
 import { EditFormComponent } from './form/edit-form/edit-form.component';
+import { QuestionaireItemComponent } from './form/questionaire-item/questionaire-item.component';
+import { QuestionaireListComponent } from './form/questionaire-list/questionaire-list.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { EditFormComponent } from './form/edit-form/edit-form.component';
     ResponseComponent,
     AdministratorComponent,
     FacultyComponent,
-    EditFormComponent
+    EditFormComponent,
+    QuestionaireItemComponent,
+    QuestionaireListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -41,8 +45,11 @@ import { EditFormComponent } from './form/edit-form/edit-form.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'form', component: FormComponent },
-      { path: 'form/:id', component: EditFormComponent },
-      { path: 'administrator', component: AdministratorComponent },
+      { path: 'form/:id', component: QuestionaireItemComponent },
+      { path: 'form/:id', component: QuestionaireListComponent },
+    
+     { path: 'form/:id', component: EditFormComponent },
+       { path: 'administrator', component: AdministratorComponent },
       { path: 'faculty', component: FacultyComponent },
       { path: 'counter', component: CounterComponent },
       /*{ path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },*/
