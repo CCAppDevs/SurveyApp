@@ -44,12 +44,10 @@ import { QuestionaireListComponent } from './form/questionaire-list/questionaire
     ApiAuthorizationModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'questionaire', component: QuestionaireListComponent },
       { path: 'form', component: FormComponent },
-      { path: 'form/:id', component: QuestionaireItemComponent },
-      { path: 'form/:id', component: QuestionaireListComponent },
-    
-     { path: 'form/:id', component: EditFormComponent },
-       { path: 'administrator', component: AdministratorComponent },
+      { path: 'form/:id', component: EditFormComponent },
+      { path: 'administrator', component: AdministratorComponent },
       { path: 'faculty', component: FacultyComponent },
       { path: 'counter', component: CounterComponent },
       /*{ path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },*/
