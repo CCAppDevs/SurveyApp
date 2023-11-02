@@ -1,14 +1,37 @@
 <div class="containter editForm">
   <div class="row">
     <div class="col text-center">
-      <h1>Form Title Goes Here</h1>
+      <h1>Edit Questionaire - {{ id }}</h1>
     </div>
   </div>
-  <div class="row">
-    <form>
+  <form [formGroup]="questionaireForm">
+    <div class="row">
       <div class="col">
-
+        <div class="input-group mb-3">
+          <span class="input-group-text">Form Title</span>
+          <input type="text" class="form-control" formControlName="title" />
+        </div>
       </div>
-    </form>
-  </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="input-group mb-3">
+          <span class="input-group-text">Created On</span>
+          <input type="text" class="form-control" formControlName="createdDate" />
+        </div>
+      </div>
+    </div>
+    <!-- for each question in questionaireForm.questions -->
+      <!-- add a question field -->
+    <div class="row">
+      <div class="col">
+        <button class="btn btn-primary btn-sm" (click)="addNewQuestion()">Add New Question</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col" formControlArray="questions">
+        <p>test</p>
+      </div>
+    </div>
+  </form>
 </div>
