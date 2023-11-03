@@ -7,6 +7,7 @@ namespace SurveyApp.Models
 
 
         public int ResponseID { get; set; } // identifies a individual answer to a question
+        public int SurveyId { get; set; }
 
         public int QuestionID { get; set; }
 

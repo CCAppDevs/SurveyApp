@@ -13,6 +13,7 @@ namespace SurveyApp.Data
 
         public DbSet <Response> Responses{ get; set; }
 
+        public DbSet <Survey> Surveys { get; set; }
 
         public ApplicationDbContext(DbContextOptions options, IOptions<OperationalStoreOptions> operationalStoreOptions)
             : base(options, operationalStoreOptions)
