@@ -1,33 +1,34 @@
-<p>survey-page works!</p>
-<html>
-<head>
-  <title> Survey Page </title>
-  <link>
-</head>
-<body>
- 
-  <nav>
-    <p>CCSurveys</p>
-    <p>Survey ID: 1</p>
-
-    
-    <button>Start</button>
-    <button> Location</button>
-    <button>Administrator</button>
-    
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li> <a href="#">Manage Surveys</a>
-           <ul>
-             <li align="center"><a href="#">Create A Survey</a></li>
-             <li align="center"><a href="#">Check Results</a></li>
-             <li align="center"><a href="#">Edit Survey</a></li>
-             <li align="center"><a href="#">I am a teapot</a></li>
-
-           </ul>
-      </li>
-    </ul>
-  </nav>
+<form>
+  <div class="container">
+    <div class="row text-center justify-content-center p-3">
+      <div class="col-4">
+        <h1>Survey {{ survey.surveyID }}</h1>
+      </div>
+    </div>
+    <div class="row text-center justify-content-center p-3">
+      <div class="col-4">
+        <h3>{{ survey.questionaire.title }}</h3>
+      </div>
+    </div>
+    <div class="row justify-content-center p-3">
+      <div class="col-4">
+        <div class="input-group mb-2">
+          <label class="input-group-text">Instructor</label>
+          <input type="text" class="form-control">
+        </div>
+        <div class="input-group mb-2">
+          <span class="input-group-text">Location</span>
+          <select class="form-select">
+            <option>WAH-216</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center p-3">
+      <div class="col-4 text-center">
+        <button class="btn btn-primary btn-lg p-2">Start Survey</button>
+      </div>
+    </div>
+  </div>
   
-</body>
-</html>
+</form>
