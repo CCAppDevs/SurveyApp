@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col d-flex">
+    <div class="flex-grow-1">
+      <h3>Questionaires</h3>
+    </div>
+    <div class="">
+      <button class="btn btn-primary btn-sm">Create New</button>
+    </div>
+  </div>
+  <div class="col-12 g-1" *ngFor="let questionaire of questionaires">
+    <app-questionaire-item [questionaire]="questionaire"></app-questionaire-item>
+  </div>
+</div>

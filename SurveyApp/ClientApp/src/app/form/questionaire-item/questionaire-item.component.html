@@ -1,0 +1,24 @@
+<div class="questionaire">
+
+  <div class="row border rounded p-1">
+    <div class="col d-flex">
+      <div class="p-1">
+        <span class="fw-bold">ID:</span>
+        {{ questionaire.questionaireID }}
+      </div>
+      <div class="p-1 flex-grow-1">
+        <span class="fw-bold">Title:</span>
+        {{ questionaire.title }}
+      </div>
+      <div class="p-1 me-2">
+        <span class="fw-bold">Modified Date:</span>
+        {{ questionaire.modifiedDate | date }}
+      </div>
+      <div class="btn-group btn-group-sm">
+        <button class="btn btn-danger">Delete</button>
+        <button class="btn btn-primary">Edit</button>
+        <button class="btn btn-success">Start</button>
+      </div>
+    </div>
+  </div>
+</div>
