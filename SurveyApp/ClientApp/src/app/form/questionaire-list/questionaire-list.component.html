@@ -1,119 +1,13 @@
-<h1> Questionaire List</h1>
 <div class="row">
-  <div class="col">
-
-    <style>
-      .right-align {
-        float: right;
-      }
-    </style>
-
-    <button type="button" class="right-align">Create</button>
-
+  <div class="col d-flex">
+    <div class="flex-grow-1">
+      <h3>Questionaires</h3>
+    </div>
+    <div class="">
+      <button class="btn btn-primary btn-sm">Create New</button>
+    </div>
+  </div>
+  <div class="col-12 g-1" *ngFor="let questionaire of questionaires">
+    <app-questionaire-item [questionaire]="questionaire"></app-questionaire-item>
   </div>
 </div>
-
-
-
-  <!--&nbsp; = space between each thing-->
-  <ol>
-    <li>
-
-
-      <div class="row border border-dark border-2 rounded m-2">
-        <div class="row" id="QuestionaireID">
-          <div class="col">
-            <span id="Questionaire">  a3b123</span>
-            &nbsp;&nbsp;&nbsp;
-            <label for="surveyname"> Questionaire title  </label>
-
-            <!--<input type="text">-->
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-            <label for="Revisiondate"> Revision: 10/27/23 </label>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button type="button" style="background-color:red;">Delete</button>
-            &nbsp;&nbsp;&nbsp;
-            <button type="button">Edit</button>
-            &nbsp;&nbsp;&nbsp;
-            <button type="button">Start</button>
-          </div>
-        </div>
-        </div>
-
-
-
-
-    </li>
-<!----------------------------------------------------------------->
-<li>
-  <div class="row border border-dark border-2 rounded m-2">
-    <div class="row" id="QuestionaireID">
-      <div class="col">
-        <span id="Questionaire">  b34678</span>
-        &nbsp;&nbsp;&nbsp;
-        <label for="surveyname"> Questionaire title 2 </label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
-
-        <label for="Revisiondate"> Revision: 10/27/23 </label>
-        &nbsp;&nbsp;&nbsp;
-        <button type="button" style="background-color:red;">Delete</button>
-        &nbsp;&nbsp;&nbsp;
-        <button type="button">Edit</button>
-        &nbsp;&nbsp;&nbsp;
-        <button type="button">Start</button>
-      </div>
-    </div>
-  </div>
-</li>
-<!----------------------------------------------------------------------->
-
-
-<li>
-  <div class="row border border-dark border-2 rounded m-2">
-    <div class="row" id="QuestionaireID">
-      <div class="col">
-        <span id="Questionaire">  2098a7</span>
-        &nbsp;&nbsp;&nbsp;
-        <label for="surveyname"> Questionaire title 3 </label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;
-
-        <label for="Revisiondate"> Revision: 10/27/23 </label>
-        &nbsp;&nbsp;&nbsp;
-        <button type="button" style="background-color:red;">Delete</button>
-        &nbsp;&nbsp;&nbsp;
-        <button type="button">Edit</button>
-        &nbsp;&nbsp;&nbsp;
-        <button type="button" class="right">Start</button>
-      </div>
-    </div>
-  </div>
-</li>
-
-<!----------------------------------------------------------------------->
-
-<li>
-  <div class="row border border-dark border-2 rounded m-2">
-    <div class="row" id="QuestionaireID">
-      <div class="col">
-        <span id="Questionaire">  1836af</span>
-        &nbsp;&nbsp;&nbsp;
-        <label for="surveyname"> Questionaire title 4 </label>
-        &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;
-
-        <label for="Revisiondate"> Revision: 10/27/23 </label>
-        &nbsp;&nbsp;&nbsp;
-        <button type="button" style="background-color:red;">Delete</button>
-        &nbsp;&nbsp;&nbsp;
-        <button type="button">Edit</button>
-        &nbsp;&nbsp;&nbsp;
-        <button type="button">Start</button>
-      </div>
-    </div>
-  </div>
-
-</li>
-
-  </ol>
-
-
