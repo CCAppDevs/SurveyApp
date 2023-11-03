@@ -33,7 +33,7 @@ import { SurveyPageComponent } from './survey-page/survey-page.component';
     ResponseComponent,
     AdministratorComponent,
     FacultyComponent,
-    SurveyPageComponent
+    SurveyPageComponent,
     EditFormComponent,
     QuestionaireItemComponent,
     QuestionaireListComponent
