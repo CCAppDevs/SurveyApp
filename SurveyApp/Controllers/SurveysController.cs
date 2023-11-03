@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using SurveyApp.Data;
 using SurveyApp.Models;
 
-namespace SurveyApp.Data
+namespace SurveyApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -24,10 +25,10 @@ namespace SurveyApp.Data
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Survey>>> GetSurveys()
         {
-          if (_context.Surveys == null)
-          {
-              return NotFound();
-          }
+            if (_context.Surveys == null)
+            {
+                return NotFound();
+            }
             return await _context.Surveys.ToListAsync();
         }
 
@@ -35,10 +36,10 @@ namespace SurveyApp.Data
         [HttpGet("{id}")]
         public async Task<ActionResult<Survey>> GetSurvey(int id)
         {
-          if (_context.Surveys == null)
-          {
-              return NotFound();
-          }
+            if (_context.Surveys == null)
+            {
+                return NotFound();
+            }
             var survey = await _context.Surveys.FindAsync(id);
 
             if (survey == null)
@@ -85,10 +86,10 @@ namespace SurveyApp.Data
         [HttpPost]
         public async Task<ActionResult<Survey>> PostSurvey(Survey survey)
         {
-          if (_context.Surveys == null)
-          {
-              return Problem("Entity set 'ApplicationDbContext.Surveys'  is null.");
-          }
+            if (_context.Surveys == null)
+            {
+                return Problem("Entity set 'ApplicationDbContext.Surveys'  is null.");
+            }
             _context.Surveys.Add(survey);
             await _context.SaveChangesAsync();
 
