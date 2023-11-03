@@ -1,34 +1,30 @@
-<form>
-  <div class="container">
-    <div class="row text-center justify-content-center p-3">
-      <div class="col-4">
-        <h1>Survey {{ survey.surveyID }}</h1>
-      </div>
-    </div>
-    <div class="row text-center justify-content-center p-3">
-      <div class="col-4">
-        <h3>{{ survey.questionaire.title }}</h3>
-      </div>
-    </div>
-    <div class="row justify-content-center p-3">
-      <div class="col-4">
-        <div class="input-group mb-2">
-          <label class="input-group-text">Instructor</label>
-          <input type="text" class="form-control">
-        </div>
-        <div class="input-group mb-2">
-          <span class="input-group-text">Location</span>
-          <select class="form-select">
-            <option>WAH-216</option>
-          </select>
-        </div>
-      </div>
-    </div>
-    <div class="row justify-content-center p-3">
-      <div class="col-4 text-center">
-        <button class="btn btn-primary btn-lg p-2">Start Survey</button>
-      </div>
-    </div>
-  </div>
   
-</form>
+<div class="row text-center m-4">
+  <div class="col">
+    <!-- title -->
+    <h1>Survey# a123bc</h1>
+  </div>
+</div>
+<div class="row text-center m-4 p-4">
+  <div class="col">
+    <h2>Questionaire Title</h2>
+  </div>
+</div>
+<div class="row text-center">
+  <div class="col"></div>
+  <div class="col">
+    <!-- start survey form -->
+    <form>
+      <div class="input-group mb-3">
+        <span class="input-group-text">Instructor</span>
+        <input type="text" class="form-control" [value]="data.instructor" />
+      </div>
+      <div class="input-group pink-label mb-3">
+        <span class="input-group-text">Location</span>
+        <input type="text" class="form-control" [value]="data.location" />
+      </div>
+      <button class="btn btn-primary" (click)="startSurvey()">Start Survey</button>
+    </form>
+  </div>
+  <div class="col"></div>
+</div>
