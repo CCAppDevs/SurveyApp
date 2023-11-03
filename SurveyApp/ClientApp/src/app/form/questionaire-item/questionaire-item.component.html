@@ -1,24 +1,24 @@
-<div class="container QuestionaireItem">
+<div class="questionaire">
 
-  <div class="row border border-dark border-2 rounded m-2">
-  <div class="row" id="QuestionaireID">
-    <div class="col d-flex space-between">
-      <span id="Questionaire">  a3b123</span>
-      <label for="surveyname"> Questionaire title: </label>
-      <label for="Revisiondate"> Revision: 10/27/23 </label>
-      <button type="button" style="background-color:red;">Delete</button>
-      <button type="button">Edit</button>
-      <button type="button">Start</button>
+  <div class="row border rounded p-1">
+    <div class="col d-flex">
+      <div class="p-1">
+        <span class="fw-bold">ID:</span>
+        {{ questionaire.questionaireID }}
+      </div>
+      <div class="p-1 flex-grow-1">
+        <span class="fw-bold">Title:</span>
+        {{ questionaire.title }}
+      </div>
+      <div class="p-1 me-2">
+        <span class="fw-bold">Modified Date:</span>
+        {{ questionaire.modifiedDate | date }}
+      </div>
+      <div class="btn-group btn-group-sm">
+        <button class="btn btn-danger">Delete</button>
+        <button class="btn btn-primary">Edit</button>
+        <button class="btn btn-success">Start</button>
+      </div>
     </div>
   </div>
 </div>
-</div>
-
-
-<!--gets last modified date?-->
-<!--<script>
-  let text = Questionaire.lastModified;
-  HTMLFormElement.getElementById("QuestionaireID").innerHTML = text;
-</script>-->
-<!--creates id?-->
-<!--<div id="Questionaire"> a3b123 <span id="Questionaire"></span> </div>-->

@@ -45,6 +45,7 @@ import { QuestionaireListComponent } from './form/questionaire-list/questionaire
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'questionaire', component: QuestionaireListComponent },
+      { path: 'questionaire/:id', component: QuestionaireItemComponent },
       { path: 'form', component: FormComponent },
       { path: 'form/:id', component: EditFormComponent },
       { path: 'administrator', component: AdministratorComponent },
