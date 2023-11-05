@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
-export interface Survey {
+export interface Questionaire {
   formId: number;
   createdDate: Date;
   modifiedDate: Date;
@@ -34,13 +34,13 @@ export class DataService {
   }
 
   // put an updated form (update)
-  updateQuestionaire(form: Survey): Observable<Survey> {
-    return this.http.put<Survey>(`${this.baseUrl}/questionaires/${form.formId}`, form);
+  updateQuestionaire(questionaire: Questionaire): Observable<Questionaire> {
+    return this.http.put<Questionaire>(`${this.baseUrl}/questionaires/${questionaire.formId}`, questionaire);
   }
 
   // post a new form (create)
-  createNewQuestionaire(form: Survey): Observable<Survey> {
-    return this.http.post<Survey>(`${this.baseUrl}/questionaires`, form);
+  createNewQuestionaire(questionaire: Questionaire): Observable<Questionaire> {
+    return this.http.post<Questionaire>(`${this.baseUrl}/questionaires`, questionaire);
   }
 
   // delete a form (delete)
