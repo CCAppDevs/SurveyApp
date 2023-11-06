@@ -1,0 +1,30 @@
+  
+<div class="row text-center m-4">
+  <div class="col">
+    <!-- title -->
+    <h1>Survey# a123bc</h1>
+  </div>
+</div>
+<div class="row text-center m-4 p-4">
+  <div class="col">
+    <h2>Questionaire Title</h2>
+  </div>
+</div>
+<div class="row text-center">
+  <div class="col"></div>
+  <div class="col">
+    <!-- start survey form -->
+    <form>
+      <div class="input-group mb-3">
+        <span class="input-group-text">Instructor</span>
+        <input type="text" class="form-control" [value]="data.instructor" />
+      </div>
+      <div class="input-group pink-label mb-3">
+        <span class="input-group-text">Location</span>
+        <input type="text" class="form-control" [value]="data.location" />
+      </div>
+      <button class="btn btn-primary" (click)="startSurvey()">Start Survey</button>
+    </form>
+  </div>
+  <div class="col"></div>
+</div>

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SurveyApp.Data;
 
@@ -11,9 +12,11 @@ using SurveyApp.Data;
 namespace SurveyApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231101231946_AddedSurvey")]
+    partial class AddedSurvey
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -427,17 +430,12 @@ namespace SurveyApp.Data.Migrations
                     b.Property<int>("QuestionID")
                         .HasColumnType("int");
 
-                    b.Property<int>("SurveyId")
-                        .HasColumnType("int");
-
                     b.Property<string>("TextResponse")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ResponseID");
 
                     b.HasIndex("QuestionID");
-
-                    b.HasIndex("SurveyId");
 
                     b.ToTable("Responses");
                 });
@@ -450,18 +448,7 @@ namespace SurveyApp.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SurveyId"));
 
-                    b.Property<DateTime>("AdministeredDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Instructor")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Location")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("QuestionaireId")
+                    b.Property<int>("ResponseID")
                         .HasColumnType("int");
 
                     b.HasKey("SurveyId");
@@ -536,12 +523,6 @@ namespace SurveyApp.Data.Migrations
                         .HasForeignKey("QuestionID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("SurveyApp.Models.Survey", null)
-                        .WithMany("Responses")
-                        .HasForeignKey("SurveyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("SurveyApp.Models.Question", b =>
@@ -552,11 +533,6 @@ namespace SurveyApp.Data.Migrations
             modelBuilder.Entity("SurveyApp.Models.Questionaire", b =>
                 {
                     b.Navigation("Questions");
-                });
-
-            modelBuilder.Entity("SurveyApp.Models.Survey", b =>
-                {
-                    b.Navigation("Responses");
                 });
 #pragma warning restore 612, 618
         }
