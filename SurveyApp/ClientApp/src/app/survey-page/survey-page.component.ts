@@ -14,5 +14,6 @@ export class SurveyPageComponent {
 
   startSurvey() {
     console.log("Survey Started", this.data);
+    // we will add code to process the form
   }
 }
