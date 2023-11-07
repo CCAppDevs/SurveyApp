@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using SurveyApp.Models;
 
 namespace SurveyApp.Data
@@ -15,31 +16,29 @@ namespace SurveyApp.Data
                 throw new NullReferenceException("No context available");
             }
 
-            for (int i = 0; i < 5; i++)
+            if (!context.Questionaire.Any())
             {
-                Questionaire seed = new Questionaire
+                var questionaires = new List<Questionaire>
                 {
-
-                    Questions = new List<Question>
-                    {
-                        new Question
-                        {
-                            Responses = new List<Response>
-                            {
-                                new Response
-                                {
-
-                                }
-                            }
-                        }
-                    }
+                    new Questionaire { Title = "Questionaire 1", CreatedDate = DateTime.Now, ModifiedDate = DateTime.Now },
+                    new Questionaire { Title = "Questionaire 2", CreatedDate = DateTime.Now, ModifiedDate = DateTime.Now },
+                    new Questionaire { Title = "Questionaire 3", CreatedDate = DateTime.Now, ModifiedDate = DateTime.Now },
 
                 };
 
-                context.Questionaire.Add(seed);
+                context.AddRange(questionaires);
+                context.SaveChanges();
+            }
 
-                await context.SaveChangesAsync();
+            if (!context.Questions.Any())
+            {
+                var questions = new List<Question>
+                {
+                    new Question { QuestionaireId = 1, Prompt = "Prompt", PromptType = 1}
+                };
 
+                context.AddRange(questions); 
+                context.SaveChanges();
             }
 
         }
