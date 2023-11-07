@@ -16,7 +16,7 @@ namespace SurveyApp.Data
                 throw new NullReferenceException("No context available");
             }
 
-            if (!context.Questionaire.Any())
+            if (!context.Questionaire.Any() && !context.Questions.Any() && !context.Responses.Any() && !context.Surveys.Any())
             {
                 var questionaires = new List<Questionaire>
                 {
@@ -26,21 +26,24 @@ namespace SurveyApp.Data
 
                 };
 
-                context.AddRange(questionaires);
-                context.SaveChanges();
-            }
-
-            if (!context.Questions.Any())
-            {
                 var questions = new List<Question>
                 {
                     new Question { QuestionaireId = 1, Prompt = "Prompt", PromptType = 1}
                 };
 
-                context.AddRange(questions); 
+                var responses = new List<Response>
+                {
+                    
+                };
+
+                var surveys = new List<Survey>
+                {
+
+                };
+
+                context.AddRange(questionaires, questions, responses, surveys);
                 context.SaveChanges();
             }
-
         }
     }
 }
