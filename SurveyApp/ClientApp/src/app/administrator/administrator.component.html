@@ -7,7 +7,9 @@
 
   <div class="row m-4">
     <div class="col">
-      <app-questionaire-list></app-questionaire-list>
+      <app-questionaire-list [questionaires]="questionaires"></app-questionaire-list>
     </div>
   </div>
 </div>
+
+<pre>{{ questionaires | json }}</pre>

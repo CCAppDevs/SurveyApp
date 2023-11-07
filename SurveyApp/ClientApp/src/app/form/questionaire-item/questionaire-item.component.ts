@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-questionaire-item',
@@ -12,6 +12,12 @@ export class QuestionaireItemComponent {
     createdDate: Date.now(),
     modifiedDate: Date.now(),
     questions: []
-   }
+  }
+
+  @Output() onDelete = new EventEmitter<number>();
+
+  deleteItem() {
+    this.onDelete.emit(this.questionaire.questionaireID);
+  }
 
 }

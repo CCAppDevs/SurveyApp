@@ -22,4 +22,8 @@ export class QuestionaireListComponent {
       questions: []
     }
   ];
+
+  delete(id: number) {
+    console.log('deleting id @ list', id);
+  }
 }
