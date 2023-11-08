@@ -21,6 +21,7 @@ import { EditFormComponent } from './form/edit-form/edit-form.component';
 import { QuestionaireItemComponent } from './form/questionaire-item/questionaire-item.component';
 import { QuestionaireListComponent } from './form/questionaire-list/questionaire-list.component';
 import { SurveyPageComponent } from './survey-page/survey-page.component';
+import { TextQuestionComponent } from './Survey/Components/text-question/text-question.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SurveyPageComponent } from './survey-page/survey-page.component';
     SurveyPageComponent,
     EditFormComponent,
     QuestionaireItemComponent,
-    QuestionaireListComponent
+    QuestionaireListComponent,
+    TextQuestionComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -50,10 +52,11 @@ import { SurveyPageComponent } from './survey-page/survey-page.component';
       { path: 'questionaire/:id', component: QuestionaireItemComponent },
       { path: 'form', component: FormComponent },
       { path: 'form/:id', component: EditFormComponent },
-      {path: 'survey/:id', component: SurveyPageComponent},
+      { path: 'survey/:id', component: SurveyPageComponent},
       { path: 'administrator', component: AdministratorComponent },
       { path: 'faculty', component: FacultyComponent },
       { path: 'counter', component: CounterComponent },
+      { path: 'textQuestion', component: TextQuestionComponent},
       /*{ path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },*/
     ])
   ],
