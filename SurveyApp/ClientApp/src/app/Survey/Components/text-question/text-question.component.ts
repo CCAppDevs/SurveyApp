@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./text-question.component.css']
 })
 export class TextQuestionComponent {
-
+  Question: any = {
+    QuestionID: 0,
+    Prompt: "Test Feedback Question",
+    PromptType: 0,
+    QuestionaireID: 0,
+    Responses: []
+    }
 }
