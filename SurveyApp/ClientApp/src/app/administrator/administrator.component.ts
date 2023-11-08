@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap } from 'rxjs';
+import { BehaviorSubject, switchMap } from 'rxjs';
 import { DataService } from '../data.service';
 
 @Component({
@@ -10,11 +10,11 @@ import { DataService } from '../data.service';
 })
 export class AdministratorComponent {
 
-  questionaires: any[] = [];
+  questionaires$: BehaviorSubject<any[]>;
 
   constructor(private data: DataService) {
-    this.data.getAllQuestionaires().subscribe(result => {
-      this.questionaires = result;
-    });
+    this.questionaires$ = this.data.questionaires$;
+
+    this.data.getAllQuestionaires();
   }
 }

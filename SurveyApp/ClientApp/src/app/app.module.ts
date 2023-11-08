@@ -13,7 +13,6 @@ import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { FormComponent } from './form/form/form.component';
-import { ResponseComponent } from './response/response.component';
 import { DataService } from './data.service';
 import { AdministratorComponent } from './administrator/administrator.component';
 import { FacultyComponent } from './faculty/faculty.component';
@@ -30,7 +29,6 @@ import { SurveyPageComponent } from './survey-page/survey-page.component';
     CounterComponent,
     FetchDataComponent,
     FormComponent,
-    ResponseComponent,
     AdministratorComponent,
     FacultyComponent,
     SurveyPageComponent,

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { DataService } from '../../data.service';
 
 @Component({
   selector: 'app-questionaire-list',
@@ -6,24 +7,25 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./questionaire-list.component.css']
 })
 export class QuestionaireListComponent {
-  @Input() questionaires: any[] = [
-    {
-      questionaireID: 0,
-      title: "test",
-      createdDate: Date.now(),
-      modifiedDate: Date.now(),
+  @Input() questionaires: any[] = [];
+
+  constructor(private data: DataService) {
+    this.data.questionaires$.subscribe(result => {
+      console.log(result);
+    })
+  }
+
+  createNew() {
+    this.data.createNewQuestionaire({
+      formId: 0,
+      createdDate: new Date(),
+      modifiedDate: new Date(),
+      title: 'toast',
       questions: []
-    },
-    {
-      questionaireID: 0,
-      title: "test",
-      createdDate: Date.now(),
-      modifiedDate: Date.now(),
-      questions: []
-    }
-  ];
+    });
+  }
 
   delete(id: number) {
-    console.log('deleting id @ list', id);
+    this.data.deleteQuestionaire(id);
   }
 }
