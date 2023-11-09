@@ -21,6 +21,7 @@ import { EditFormComponent } from './form/edit-form/edit-form.component';
 import { QuestionaireItemComponent } from './form/questionaire-item/questionaire-item.component';
 import { QuestionaireListComponent } from './form/questionaire-list/questionaire-list.component';
 import { SurveyPageComponent } from './survey-page/survey-page.component';
+import { RatingQuestionComponent } from './rating-question/rating-question.component';
 import { TextQuestionComponent } from './Survey/Components/text-question/text-question.component';
 
 @NgModule({
@@ -38,6 +39,7 @@ import { TextQuestionComponent } from './Survey/Components/text-question/text-qu
     EditFormComponent,
     QuestionaireItemComponent,
     QuestionaireListComponent,
+    RatingQuestionComponent,
     TextQuestionComponent
   ],
   imports: [
@@ -56,6 +58,8 @@ import { TextQuestionComponent } from './Survey/Components/text-question/text-qu
       { path: 'administrator', component: AdministratorComponent },
       { path: 'faculty', component: FacultyComponent },
       { path: 'counter', component: CounterComponent },
+      { path: 'rating-question', component: RatingQuestionComponent,},
+      
       { path: 'textQuestion', component: TextQuestionComponent},
       /*{ path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },*/
     ])
