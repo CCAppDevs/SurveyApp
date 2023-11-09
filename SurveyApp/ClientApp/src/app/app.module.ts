@@ -56,6 +56,8 @@ import { RatingQuestionComponent } from './rating-question/rating-question.compo
       { path: 'administrator', component: AdministratorComponent },
       { path: 'faculty', component: FacultyComponent },
       { path: 'counter', component: CounterComponent },
+      { path: 'rating-question', component: RatingQuestionComponent,},
+      
       /*{ path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },*/
     ])
   ],
