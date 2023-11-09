@@ -1,0 +1,6 @@
+<div class="rating-question">
+  <h3>{{ questionText }}</h3>
+  <div class="rating-options">
+    <button *ngFor="let option of rangeArray" (click)="selectOption(option)">{{ option }}</button>
+  </div>
+</div>
