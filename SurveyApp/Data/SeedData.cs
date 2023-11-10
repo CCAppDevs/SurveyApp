@@ -23,22 +23,47 @@ namespace SurveyApp.Data
                     new Questionaire { Title = "Questionaire 1", CreatedDate = DateTime.Now, ModifiedDate = DateTime.Now },
                     new Questionaire { Title = "Questionaire 2", CreatedDate = DateTime.Now, ModifiedDate = DateTime.Now },
                     new Questionaire { Title = "Questionaire 3", CreatedDate = DateTime.Now, ModifiedDate = DateTime.Now },
-
+                    new Questionaire { Title = "Questionaire 4", CreatedDate = DateTime.Now, ModifiedDate = DateTime.Now },
                 };
 
                 var questions = new List<Question>
                 {
-                    new Question { QuestionaireId = 1, Prompt = "Prompt", PromptType = 1}
+                    new Question { QuestionaireId = 1, Prompt = "Prompt", PromptType = 1},
+                    new Question { QuestionaireId = 1, Prompt = "Prompt", PromptType = 2},
+                    new Question { QuestionaireId = 2, Prompt = "Prompt", PromptType = 1},
+                    new Question { QuestionaireId = 2, Prompt = "Prompt", PromptType = 2},
+                    new Question { QuestionaireId = 3, Prompt = "Prompt", PromptType = 1},
+                    new Question { QuestionaireId = 3, Prompt = "Prompt", PromptType = 2},
+                    new Question { QuestionaireId = 4, Prompt = "Prompt", PromptType = 1},
+                    new Question { QuestionaireId = 4, Prompt = "Prompt", PromptType = 2},
                 };
 
                 var responses = new List<Response>
                 {
-                    
+                    new Response { QuestionID = 1, NumericResponse =  1},
+                    new Response { QuestionID = 1, NumericResponse =  2},
+                    new Response { QuestionID = 1, TextResponse =  "Response"},
+                    new Response { QuestionID = 1, TextResponse =  "Response2"},
+                    new Response { QuestionID = 2, NumericResponse =  1},
+                    new Response { QuestionID = 2, NumericResponse =  2},
+                    new Response { QuestionID = 2, TextResponse =  "Response"},
+                    new Response { QuestionID = 2, TextResponse =  "Response2"},
+                    new Response { QuestionID = 3, NumericResponse =  1},
+                    new Response { QuestionID = 3, NumericResponse =  2},
+                    new Response { QuestionID = 3, TextResponse =  "Response"},
+                    new Response { QuestionID = 3, TextResponse =  "Response2"},
+                    new Response { QuestionID = 4, NumericResponse =  1},
+                    new Response { QuestionID = 4, NumericResponse =  2},
+                    new Response { QuestionID = 4, TextResponse =  "Response"},
+                    new Response { QuestionID = 4, TextResponse =  "Response2"},
                 };
 
                 var surveys = new List<Survey>
                 {
-
+                    new Survey { QuestionaireId = 1, AdministeredDate = DateTime.Now, Instructor = "Jesse Harlan", Location = "WAH216"},
+                    new Survey { QuestionaireId = 2, AdministeredDate = DateTime.Now, Instructor = "Johnny Appleseed", Location = "WAH215"},
+                    new Survey { QuestionaireId = 3, AdministeredDate = DateTime.Now, Instructor = "John Doe", Location = "WAH214"},
+                    new Survey { QuestionaireId = 4, AdministeredDate = DateTime.Now, Instructor = "John F Kennedy", Location = "WAH213"},
                 };
 
                 context.AddRange(questionaires, questions, responses, surveys);
