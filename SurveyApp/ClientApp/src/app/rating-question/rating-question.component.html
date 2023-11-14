@@ -1,6 +1,69 @@
-<div class="rating-question">
-  <h3>{{ questionText }}</h3>
-  <div class="rating-options">
-    <button *ngFor="let option of rangeArray" (click)="selectOption(option)">{{ option }}</button>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rating Question</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    .rating-question {
+      display: flex;
+      align-items: center;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    .rating-options {
+      display: flex;
+      margin-left: 10px;
+      border-left: 1px solid #ccc;
+      padding-left: 10px;
+      margin-right: -10px; /* Add negative margin to counterbalance the padding */
+    }
+
+    .rating-option {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="rating-question">
+    <label for="rating">Rate the instructor on thing1:</label>
+    <div class="rating-options">
+      <!-- Radio buttons for ratings 1 to 5 can add more to make 1 to 10 if needed -->
+      <label class="rating-option">
+        <input type="radio" name="rating" value="1"> 1
+      </label>
+      <label class="rating-option">
+        <input type="radio" name="rating" value="2"> 2
+      </label>
+      <label class="rating-option">
+        <input type="radio" name="rating" value="3"> 3
+      </label>
+      <label class="rating-option">
+        <input type="radio" name="rating" value="4"> 4
+      </label>
+      <label class="rating-option">
+        <input type="radio" name="rating" value="5"> 5
+      </label>
+      <!--<label class="rating-option">
+        <input type="radio" name="rating" value="6"> 6
+      </label>
+      <label class="rating-option">
+        <input type="radio" name="rating" value="7"> 7
+      </label>
+      <label class="rating-option">
+        <input type="radio" name="rating" value="8"> 8
+      </label>
+      <label class="rating-option">
+        <input type="radio" name="rating" value="9"> 9
+      </label>
+      <label class="rating-option">
+        <input type="radio" name="rating" value="10"> 10
+      </label>-->
+    </div>
   </div>
-</div>
+  </body>
