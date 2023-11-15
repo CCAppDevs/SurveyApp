@@ -16,6 +16,11 @@ namespace SurveyApp.Data
                 throw new NullReferenceException("No context available");
             }
 
+            if (configuration == null)
+            {
+                throw new NullReferenceException("No configuration available");
+            }
+
             if (!context.Questionaire.Any() && !context.Questions.Any() && !context.Responses.Any() && !context.Surveys.Any())
             {
                 var questionaires = new List<Questionaire>
@@ -66,7 +71,11 @@ namespace SurveyApp.Data
                     new Survey { QuestionaireId = 4, AdministeredDate = DateTime.Now, Instructor = "John F Kennedy", Location = "WAH213"},
                 };
 
-                context.AddRange(questionaires, questions, responses, surveys);
+                context.Questionaire.AddRange(questionaires);
+                context.Questions.AddRange(questions);
+                context.Responses.AddRange(responses);
+                context.Surveys.AddRange(surveys);
+
                 context.SaveChanges();
             }
         }
