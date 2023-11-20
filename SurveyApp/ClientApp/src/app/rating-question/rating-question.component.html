@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rating Question</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    .rating-question {
+      display: flex;
+      align-items: center;
+    }
+
+    .rating-options {
+      display: flex;
+      margin-left: 10px; /* Add some margin for spacing between label and options */
+    }
+
+    .rating-option {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="rating-question">
+    <label for="rating">Rating Question:</label>
+    <div class="rating-options">
+      <!-- Radio buttons for ratings 1 to 5 -->
+      <label class="rating-option">
+        <input type="radio" name="rating" value="1"> 1
+      </label>
+      <label class="rating-option">
+        <input type="radio" name="rating" value="2"> 2
+      </label>
+      <label class="rating-option">
+        <input type="radio" name="rating" value="3"> 3
+      </label>
+      <label class="rating-option">
+        <input type="radio" name="rating" value="4"> 4
+      </label>
+      <label class="rating-option">
+        <input type="radio" name="rating" value="5"> 5
+      </label>
+    </div>
+  </div>
+
+</body>
+</html>

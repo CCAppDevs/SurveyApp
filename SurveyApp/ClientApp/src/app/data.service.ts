@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 
-export interface Survey {
+export interface Questionaire {
   formId: number;
   createdDate: Date;
   modifiedDate: Date;
@@ -17,6 +17,8 @@ export class DataService {
 
   baseUrl: string;
 
+  questionaires$: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
+
   constructor(private http: HttpClient, @Inject('BASE_URL') base: string) {
     this.baseUrl = base + "api";
   }
@@ -24,28 +26,38 @@ export class DataService {
   // questionaires
 
   // get all questionaires
-  getAllQuestionaires(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}/questionaires`);
+  getAllQuestionaires(): void {
+    this.http.get<any[]>(`${this.baseUrl}/questionaires`).subscribe(questionaires => {
+      this.questionaires$.next(questionaires);
+    });
   }
 
   // get form by id (read)
-  getQuestionaireById(id: number): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/questionaires/${id}`);
+  getQuestionaireById(id: number) {
+    this.http.get<any>(`${this.baseUrl}/questionaires/${id}`).subscribe(result => {
+      this.getAllQuestionaires();
+    });
   }
 
   // put an updated form (update)
-  updateQuestionaire(form: Survey): Observable<Survey> {
-    return this.http.put<Survey>(`${this.baseUrl}/questionaires/${form.formId}`, form);
+  updateQuestionaire(questionaire: Questionaire) {
+    this.http.put<Questionaire>(`${this.baseUrl}/questionaires/${questionaire.formId}`, questionaire).subscribe(result => {
+      this.getAllQuestionaires();
+    });
   }
 
   // post a new form (create)
-  createNewQuestionaire(form: Survey): Observable<Survey> {
-    return this.http.post<Survey>(`${this.baseUrl}/questionaires`, form);
+  createNewQuestionaire(questionaire: Questionaire) {
+    this.http.post<Questionaire>(`${this.baseUrl}/questionaires`, questionaire).subscribe(result => {
+      this.getAllQuestionaires();
+    });
   }
 
   // delete a form (delete)
-  deleteQuestionaire(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.baseUrl}/questionaires/${id}`)
+  deleteQuestionaire(id: number): void {
+    this.http.delete<any>(`${this.baseUrl}/questionaires/${id}`).subscribe(result => {
+      this.getAllQuestionaires();
+    });
   }
 
 
