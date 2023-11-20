@@ -7,16 +7,16 @@
   <form [formGroup]="questionaireForm" (ngSubmit)="onSubmit()">
     <div class="row">
       <div class="col">
-        <div class="input-group mb-3">
-          <span class="input-group-text">Form Title</span>
+        <div class="mb-3">
+          <label class="form-label">Form Title</label>
           <input type="text" class="form-control" formControlName="title" />
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <div class="input-group mb-3">
-          <span class="input-group-text">Created On</span>
+        <div class="mb-3">
+          <label class="form-label">Created On</label>
           <input type="text" class="form-control" formControlName="createdDate" />
         </div>
       </div>
@@ -30,13 +30,13 @@
     </div>
     <div class="row row-cols-1" formArrayName="questions">
       <div class="col m-2" *ngFor="let question of questions.controls; let i = index;" [formGroupName]="i">
-        <div class="input-group">
-          <label class="input-group-text">Question Text</label>
-          <input type="text" class="form-control" formControlName="questionText" />
+        <div class="mb-3">
+          <label class="form-label">Question Text</label>
+          <input type="text" class="form-control" formControlName="prompt" />
         </div>
-        <div class="input-group">
-          <label class="input-group-text">Question Type</label>
-          <input type="number" class="form-control" formControlName="questionType" />
+        <div class="mb-3">
+          <label class="form-label">Question Type</label>
+          <input type="number" class="form-control" formControlName="promptType" />
         </div>
       </div>
     </div>
