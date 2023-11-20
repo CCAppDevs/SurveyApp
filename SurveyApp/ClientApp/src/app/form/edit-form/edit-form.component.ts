@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
-import { DataService, Survey } from '../../data.service';
+import { DataService, Questionaire } from '../../data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-form',
@@ -19,7 +20,7 @@ export class EditFormComponent {
     'Text'
   ];
 
-  constructor(private fb: FormBuilder, private data: DataService) {
+  constructor(private fb: FormBuilder, private data: DataService, private router: Router) {
     this.questionaireForm = this.fb.group({
       questionaireID: 1234,
       title: "test form",
@@ -48,7 +49,7 @@ export class EditFormComponent {
   onSubmit(): void {
     console.log("form was submitted", this.questionaireForm.value);
 
-    let mySurvey: Survey = {
+    let myQuestionaire: Questionaire = {
       formId: this.questionaireForm.value.formId,
       createdDate: this.questionaireForm.value.createdDate,
       modifiedDate: this.questionaireForm.value.modifiedDate,
@@ -56,8 +57,9 @@ export class EditFormComponent {
       questions: this.questionaireForm.value.questions
     }
 
-    this.data.createNewQuestionaire(mySurvey).subscribe(result => {
-      console.log('result of new creation', result);
-    })
+    this.data.createNewQuestionaire(myQuestionaire);
+
+    // navigate away to the new questionaire
+    this.router.navigate(['administrator']);
   }
 }
