@@ -14,10 +14,10 @@ export class QuestionaireItemComponent {
     questions: []
   }
 
-  @Output() onStart = new EventEmitter<any>();
+  @Output() onDelete = new EventEmitter<number>();
 
-  onStartButtonPressed() {
-    this.onStart.emit({ message: "pressed start" });
+  deleteItem() {
+    this.onDelete.emit(this.questionaire.questionaireID);
   }
 
 }

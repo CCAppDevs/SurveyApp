@@ -1,1 +1,15 @@
-<p>administrator works!</p>
+<div class="text-center m-4">
+  <h1>Admin Dashboard</h1>
+</div>
+
+
+<div class="container rounded details">
+
+  <div class="row m-4">
+    <div class="col">
+      <app-questionaire-list [questionaires]="(questionaires$ | async)!"></app-questionaire-list>
+    </div>
+  </div>
+</div>
+
+<pre>{{ questionaires$ | async | json }}</pre>
