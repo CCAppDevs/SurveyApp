@@ -10,9 +10,7 @@ export class QuestionaireListComponent {
   @Input() questionaires: any[] = [];
 
   constructor(private data: DataService) {
-    this.data.questionaires$.subscribe(result => {
-      console.log(result);
-    })
+
   }
 
   createNew() {

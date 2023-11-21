@@ -16,8 +16,8 @@
       </div>
       <div class="btn-group btn-group-sm">
         <button class="btn btn-danger" (click)="deleteItem()">Delete</button>
-        <button class="btn btn-primary">Edit</button>
-        <button class="btn btn-success">Start</button>
+        <button class="btn btn-primary" (click)="editItem()">Edit</button>
+        <button class="btn btn-success" [routerLink]="['/survey', questionaire.questionaireID]">Start</button>
       </div>
     </div>
   </div>

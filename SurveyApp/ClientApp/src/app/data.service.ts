@@ -21,6 +21,7 @@ export class DataService {
 
   constructor(private http: HttpClient, @Inject('BASE_URL') base: string) {
     this.baseUrl = base + "api";
+    this.getAllQuestionaires();
   }
 
   // questionaires
@@ -34,9 +35,7 @@ export class DataService {
 
   // get form by id (read)
   getQuestionaireById(id: number) {
-    this.http.get<any>(`${this.baseUrl}/questionaires/${id}`).subscribe(result => {
-      this.getAllQuestionaires();
-    });
+    return this.questionaires$.getValue().find(item => item.questionaireID == id);
   }
 
   // put an updated form (update)

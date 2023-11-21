@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-questionaire-item',
@@ -16,8 +17,17 @@ export class QuestionaireItemComponent {
 
   @Output() onDelete = new EventEmitter<number>();
 
+  constructor(private router: Router) { }
+
   deleteItem() {
     this.onDelete.emit(this.questionaire.questionaireID);
   }
+
+  editItem() {
+    // reroute to edit
+    this.router.navigate(['form', this.questionaire.questionaireID]);
+  }
+
+
 
 }

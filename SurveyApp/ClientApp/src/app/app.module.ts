@@ -50,7 +50,7 @@ import { TextQuestionComponent } from './Survey/Components/text-question/text-qu
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'questionaire', component: QuestionaireListComponent },
       { path: 'questionaire/:id', component: QuestionaireItemComponent },
-      { path: 'form', component: FormComponent },
+      { path: 'form', component: EditFormComponent },
       { path: 'form/:id', component: EditFormComponent },
       { path: 'survey/:id', component: SurveyPageComponent},
       { path: 'administrator', component: AdministratorComponent },

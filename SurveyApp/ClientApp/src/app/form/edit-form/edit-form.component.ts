@@ -1,17 +1,24 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { DataService, Questionaire } from '../../data.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-form',
   templateUrl: './edit-form.component.html',
   styleUrls: ['./edit-form.component.css']
 })
-export class EditFormComponent {
+export class EditFormComponent implements OnInit {
 
-  questionaireForm: FormGroup;
-  id = 1234;
+  questionaireForm: FormGroup = this.fb.group({
+    questionaireID: 0,
+    title: "",
+    createdDate: new Date(),
+    modifiedDate: new Date(),
+    questions: this.fb.array([])
+  });
+
+  id = 0;
 
   questionTypesSimple = [
     'Yes/No',
@@ -20,14 +27,31 @@ export class EditFormComponent {
     'Text'
   ];
 
-  constructor(private fb: FormBuilder, private data: DataService, private router: Router) {
-    this.questionaireForm = this.fb.group({
-      questionaireID: 1234,
-      title: "test form",
-      createdDate: "2023-04-14",
-      modifiedDate: "2023-04-14",
-      questions: this.fb.array([])
+  constructor(private fb: FormBuilder, private data: DataService, private router: Router, private route: ActivatedRoute) {
+    this.route.paramMap.subscribe(params => {
+      this.id = Number(params.get('id'));
+    })
+
+    this.data.questionaires$.subscribe(questionaires => {
+      console.log(questionaires);
     });
+  }
+
+  ngOnInit(): void {
+    // adjust to match our existing id
+    if (this.id > 0) {
+      console.log('got', this.data.getQuestionaireById(this.id), this.id);
+      this.questionaireForm.patchValue({
+        questionaireID: this.id
+      });
+    } else {
+      // do nothing
+      console.log('doing nothing');
+    }
+
+    
+
+    console.log('form init with', this.questionaireForm.value);
   }
 
   addNewQuestion() {
