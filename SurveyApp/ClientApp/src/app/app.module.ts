@@ -22,6 +22,7 @@ import { QuestionaireListComponent } from './form/questionaire-list/questionaire
 import { SurveyPageComponent } from './survey-page/survey-page.component';
 import { RatingQuestionComponent } from './rating-question/rating-question.component';
 import { TextQuestionComponent } from './Survey/Components/text-question/text-question.component';
+import { SurveyResponseComponent } from './survey-response/survey-response.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { TextQuestionComponent } from './Survey/Components/text-question/text-qu
     QuestionaireItemComponent,
     QuestionaireListComponent,
     RatingQuestionComponent,
-    TextQuestionComponent
+    TextQuestionComponent,
+    SurveyResponseComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
