@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { DataService, Questionaire } from '../../data.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { of, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-edit-form',
@@ -9,6 +10,14 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./edit-form.component.css']
 })
 export class EditFormComponent implements OnInit {
+
+  questionaire: any = {
+    questionaireId: 0,
+    title: "",
+    createdDate: new Date(),
+    modifiedDate: new Date(),
+    questions: []
+  };
 
   questionaireForm: FormGroup = this.fb.group({
     questionaireID: 0,
@@ -28,35 +37,43 @@ export class EditFormComponent implements OnInit {
   ];
 
   constructor(private fb: FormBuilder, private data: DataService, private router: Router, private route: ActivatedRoute) {
-    this.route.paramMap.subscribe(params => {
-      this.id = Number(params.get('id'));
+    this.route.paramMap.pipe(
+      switchMap(params => {
+        this.id = Number(params.get('id'));
+        if (this.id == 0) {
+          return of({
+            questionaireId: 0,
+            title: "",
+            createdDate: new Date(),
+            modifiedDate: new Date(),
+            questions: []
+          });
+        }
+        return this.data.getQuestionaireById(this.id);
+      })
+    ).subscribe(result => {
+      this.questionaire = result;
+      this.initForm();
     })
-
-    this.data.questionaires$.subscribe(questionaires => {
-      console.log(questionaires);
-    });
   }
 
   ngOnInit(): void {
-    // adjust to match our existing id
-    if (this.id > 0) {
-      console.log('got', this.data.getQuestionaireById(this.id), this.id);
-      this.questionaireForm.patchValue({
-        questionaireID: this.id
-      });
-    } else {
-      // do nothing
-      console.log('doing nothing');
-    }
-
-    
-
     console.log('form init with', this.questionaireForm.value);
+  }
+
+  initForm(): void {
+    this.questionaireForm.patchValue({
+      questionaireID: this.id,
+      title: this.questionaire.title,
+      createdDate: this.questionaire.createdDate,
+      modifiedDate: new Date(),
+      questions: this.questionaire.questions
+    });
   }
 
   addNewQuestion() {
     // this fires when the add new button is clicked
-    console.log("add new question fired");
+    console.log("add new question fired", this.questionaire);
 
     // add a new question into the array
     this.questions.push(this.fb.group({

@@ -34,8 +34,8 @@ export class DataService {
   }
 
   // get form by id (read)
-  getQuestionaireById(id: number) {
-    return this.questionaires$.getValue().find(item => item.questionaireID == id);
+  getQuestionaireById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/questionaires/${id}`);
   }
 
   // put an updated form (update)
