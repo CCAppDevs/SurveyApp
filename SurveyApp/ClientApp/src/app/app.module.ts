@@ -58,7 +58,8 @@ import { SurveyResponseComponent } from './survey-response/survey-response.compo
       { path: 'administrator', component: AdministratorComponent },
       { path: 'faculty', component: FacultyComponent },
       { path: 'counter', component: CounterComponent },
-      { path: 'rating-question', component: RatingQuestionComponent,},
+      { path: 'rating-question', component: RatingQuestionComponent },
+      { path: 'surveyResponse', component: SurveyResponseComponent },
       
       { path: 'textQuestion', component: TextQuestionComponent},
       /*{ path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },*/
