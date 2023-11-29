@@ -67,8 +67,12 @@ export class EditFormComponent implements OnInit {
       title: this.questionaire.title,
       createdDate: this.questionaire.createdDate,
       modifiedDate: new Date(),
-      questions: this.questionaire.questions
     });
+
+    this.questionaire.questions.forEach((question: any) => {
+      this.questions.push(this.fb.group(question));
+    });
+
   }
 
   addNewQuestion() {
@@ -97,6 +101,10 @@ export class EditFormComponent implements OnInit {
       title: this.questionaireForm.value.title,
       questions: this.questionaireForm.value.questions
     }
+
+    myQuestionaire.questions.forEach(question => {
+      question.responses = [];
+    })
 
     this.data.createNewQuestionaire(myQuestionaire);
 

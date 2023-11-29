@@ -387,7 +387,7 @@ namespace SurveyApp.Data.Migrations
 
                     b.HasIndex("QuestionaireId");
 
-                    b.ToTable("Questions");
+                    b.ToTable("Questions", (string)null);
                 });
 
             modelBuilder.Entity("SurveyApp.Models.Questionaire", b =>
@@ -410,7 +410,7 @@ namespace SurveyApp.Data.Migrations
 
                     b.HasKey("QuestionaireID");
 
-                    b.ToTable("Questionaire");
+                    b.ToTable("Questionaire", (string)null);
                 });
 
             modelBuilder.Entity("SurveyApp.Models.Response", b =>
@@ -439,7 +439,7 @@ namespace SurveyApp.Data.Migrations
 
                     b.HasIndex("SurveyId");
 
-                    b.ToTable("Responses");
+                    b.ToTable("Responses", (string)null);
                 });
 
             modelBuilder.Entity("SurveyApp.Models.Survey", b =>
@@ -466,7 +466,7 @@ namespace SurveyApp.Data.Migrations
 
                     b.HasKey("SurveyId");
 
-                    b.ToTable("Surveys");
+                    b.ToTable("Surveys", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
